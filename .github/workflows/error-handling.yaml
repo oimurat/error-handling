@@ -8,6 +8,7 @@ on:
             - main
     push: # プッシュ(マージ)が発生したときにトリガー
         branches:
+            - feature/*
             - develop
             - main
 
@@ -29,10 +30,10 @@ jobs:
               with:
                   filters: |
                       frontend:
-                        - 'react/**/*.ts'
-                        - 'react/**/*.tsx'
+                        - 'react/*'
+                        - 'react/*'
                       backend:
-                        - 'fastapi/**/*.py'
+                        - 'fastapi/*'
 
     frontend-format-lint:
         name: Frontend Format & Lint
@@ -164,6 +165,8 @@ jobs:
                   pytest .
 
     sonarqube:
+        name: SonarQube Scan
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -173,7 +176,7 @@ jobs:
               uses: SonarSource/sonarqube-scan-action@v5.0.0
               with:
                   args: >
-                      -Dsonar.projectKey=oimurat_sonar-test
+                      -Dsonar.projectKey=oimurat_error-handling
                       -Dsonar.organization=oimurat
               env:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
