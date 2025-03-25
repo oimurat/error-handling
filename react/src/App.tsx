@@ -1,5 +1,5 @@
 function App() {
-    return <p>Vite</p>;
+    return <p>React</p>;
 }
 
 export default App;
