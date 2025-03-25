@@ -30,10 +30,9 @@ jobs:
               with:
                   filters: |
                       frontend:
-                        - 'react/*'
-                        - 'react/*'
+                        - 'react/**'
                       backend:
-                        - 'fastapi/*'
+                        - 'fastapi/**'
 
     frontend-format-lint:
         name: Frontend Format & Lint
