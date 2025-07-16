@@ -11,6 +11,6 @@ describe('サンプルテスト', () => {
         render(<App />);
 
         // 検証
-        expect(screen.getByText('React')).toBeInTheDocument();
+        expect(screen.getByText('React!')).toBeInTheDocument();
     });
 });
